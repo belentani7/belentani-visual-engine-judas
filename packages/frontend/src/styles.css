@@ -1,0 +1,248 @@
+/* Belentani Visual Engine - Dark pop aesthetic, 432 Hz */
+
+:root {
+  --void-0: #02030a;
+  --void-1: #080a14;
+  --void-2: #0e1120;
+  --glass: rgba(18, 22, 40, 0.72);
+  --glass-border: rgba(160, 180, 255, 0.14);
+  --gold: #ffd45c;
+  --neon: #ff073a;
+  --cyan: #64f8ff;
+  --text: #e8ecff;
+  --text-dim: #8b93b8;
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', 'Consolas', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--void-0);
+  color: var(--text);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+#viewport {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Loading overlay */
+#loading {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--void-0);
+  color: var(--cyan);
+  font-family: var(--mono);
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  z-index: 100;
+}
+
+/* Stats bar */
+#stats {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  background: linear-gradient(180deg, rgba(2, 3, 10, 0.9), transparent);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Title */
+#title {
+  position: fixed;
+  top: 40px;
+  left: 20px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+#title h1 {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+#title p {
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 0.15em;
+  margin-top: 4px;
+}
+
+/* Panels */
+.panel {
+  position: fixed;
+  right: 20px;
+  width: 260px;
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 14px;
+  z-index: 20;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+}
+
+#params {
+  top: 60px;
+}
+
+#export {
+  top: 300px;
+}
+
+#lore {
+  bottom: 20px;
+  right: 300px;
+  width: 300px;
+}
+
+.panel-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.param-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 8px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.param-row label {
+  font-size: 11px;
+  color: var(--text-dim);
+  grid-column: 1 / -1;
+}
+
+.param-row input[type='range'] {
+  width: 100%;
+  height: 3px;
+  appearance: none;
+  background: linear-gradient(90deg, var(--neon), var(--gold));
+  border-radius: 2px;
+  outline: none;
+}
+
+.param-row input[type='range']::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--text);
+  cursor: pointer;
+  box-shadow: 0 0 10px var(--cyan);
+}
+
+.param-value {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text);
+  min-width: 44px;
+  text-align: right;
+}
+
+.panel-button {
+  display: block;
+  width: 100%;
+  padding: 9px 12px;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, rgba(255, 7, 58, 0.15), rgba(100, 248, 255, 0.1));
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.panel-button:hover {
+  border-color: var(--cyan);
+  box-shadow: 0 0 20px rgba(100, 248, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.panel-button.secondary {
+  background: transparent;
+  color: var(--text-dim);
+}
+
+.panel-button.secondary:hover {
+  color: var(--text);
+}
+
+.lore-textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 11px;
+  resize: vertical;
+  outline: none;
+}
+
+.lore-textarea:focus {
+  border-color: var(--cyan);
+}
+
+@media (max-width: 768px) {
+  .panel {
+    width: calc(100% - 40px);
+    right: 20px;
+  }
+  #params {
+    top: auto;
+    bottom: 200px;
+  }
+  #export {
+    display: none;
+  }
+  #lore {
+    right: 20px;
+    bottom: 20px;
+    width: calc(100% - 40px);
+  }
+}

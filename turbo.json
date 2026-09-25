@@ -1,0 +1,103 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", "build/**", ".next/**", "*.exe", "*.app", "*.AppImage"],
+      "cache": true
+    },
+    "build:api": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", "Dockerfile"],
+      "cache": true
+    },
+    "build:desktop": {
+      "dependsOn": ["^build"],
+      "outputs": ["src-tauri/target/release/bundle/**"],
+      "cache": true
+    },
+    "lint": {
+      "outputs": [],
+      "cache": true
+    },
+    "typecheck": {
+      "dependsOn": ["^build"],
+      "outputs": [],
+      "cache": true
+    },
+    "test": {
+      "dependsOn": ["build"],
+      "outputs": ["coverage/**"],
+      "cache": true
+    },
+    "test:visual": {
+      "dependsOn": ["build"],
+      "outputs": ["playwright-report/**", "visual-diffs/**"],
+      "cache": false
+    },
+    "test:perf": {
+      "dependsOn": ["build"],
+      "outputs": [".lighthouseci/**"],
+      "cache": false
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "dev:api": {
+      "cache": false,
+      "persistent": true
+    },
+    "studio:dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "studio:build": {
+      "dependsOn": ["build:api"],
+      "outputs": ["dist/**"],
+      "cache": true
+    },
+    "deploy:preview": {
+      "dependsOn": ["build", "test", "lint", "typecheck"],
+      "cache": false
+    },
+    "deploy:prod": {
+      "dependsOn": ["build", "test", "lint", "typecheck", "test:visual", "test:perf"],
+      "cache": false
+    },
+    "generate:planet": {
+      "cache": false
+    },
+    "generate:diamond": {
+      "cache": false
+    },
+    "validate:spec": {
+      "cache": false
+    },
+    "validate:shaders": {
+      "cache": false
+    },
+    "audit": {
+      "cache": false
+    }
+  },
+  "globalDependencies": [
+    ".eslintrc.json",
+    ".prettierrc",
+    "tsconfig.base.json",
+    "vitest.config.ts",
+    "playwright.config.ts",
+    "lighthouse-budget.json"
+  ],
+  "globalEnv": [
+    "NODE_ENV",
+    "VERCEL_TOKEN",
+    "RAILWAY_TOKEN",
+    "GH_TOKEN",
+    "DATABASE_URL",
+    "REDIS_URL",
+    "JWT_SECRET",
+    "S3_ACCESS_KEY",
+    "S3_SECRET_KEY"
+  ]
+}

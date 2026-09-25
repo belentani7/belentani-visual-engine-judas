@@ -1,0 +1,63 @@
+{
+  "name": "@belentani/generators",
+  "version": "1.0.0",
+  "description": "Pure TypeScript procedural generators for Belentani Visual Engine",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./planet": {
+      "types": "./dist/planet.d.ts",
+      "import": "./dist/planet.mjs",
+      "require": "./dist/planet.js"
+    },
+    "./diamond": {
+      "types": "./dist/diamond.d.ts",
+      "import": "./dist/diamond.mjs",
+      "require": "./dist/diamond.js"
+    },
+    "./key": {
+      "types": "./dist/key.d.ts",
+      "import": "./dist/key.mjs",
+      "require": "./dist/key.js"
+    },
+    "./machine": {
+      "types": "./dist/machine.d.ts",
+      "import": "./dist/machine.mjs",
+      "require": "./dist/machine.js"
+    },
+    "./mirror": {
+      "types": "./dist/mirror.d.ts",
+      "import": "./dist/mirror.mjs",
+      "require": "./dist/mirror.js"
+    },
+    "./accretion": {
+      "types": "./dist/accretion.d.ts",
+      "import": "./dist/accretion.mjs",
+      "require": "./dist/accretion.js"
+    },
+    "./scene-composer": {
+      "types": "./dist/scene-composer.d.ts",
+      "import": "./dist/scene-composer.mjs",
+      "require": "./dist/scene-composer.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "build:watch": "tsc -b -w",
+    "lint": "eslint src --ext .ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0"
+  },
+  "sideEffects": false
+}

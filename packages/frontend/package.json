@@ -1,0 +1,26 @@
+{
+  "name": "@belentani/frontend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Three.js WebGPU/TSL renderer for Belentani Visual Engine",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext .ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@belentani/core": "file:../core",
+    "@belentani/generators": "file:../generators",
+    "three": "^0.185.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.185.0",
+    "typescript": "^5.5.0",
+    "vite": "^5.4.0",
+    "vitest": "^2.0.0"
+  }
+}

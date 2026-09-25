@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#02030a" />
+
+    <title>Belentani — Visual Engine</title>
+    <meta name="description" content="Lore → Experiências visuais Three.js procedurais. Planeta vivo, diamante IOR 2.417, chave dourada, máquina orgânica 432Hz." />
+
+    <meta property="og:title" content="Belentani — Visual Engine" />
+    <meta property="og:description" content="Lore → Experiências visuais procedurais" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="loading">Iniciando motor visual…</div>
+
+    <canvas id="viewport"></canvas>
+
+    <div id="stats">— FPS</div>
+
+    <div id="title">
+      <h1>Belentani</h1>
+      <p>Visual Engine · 432 Hz</p>
+    </div>
+
+    <aside id="params" class="panel"></aside>
+    <aside id="export" class="panel"></aside>
+    <aside id="lore" class="panel"></aside>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

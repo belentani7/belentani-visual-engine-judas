@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@belentani/core": ["packages/core/src/index.ts"],
+      "@belentani/core/*": ["packages/core/src/*"],
+      "@belentani/generators": ["packages/generators/src/index.ts"],
+      "@belentani/generators/*": ["packages/generators/src/*"],
+      "@belentani/frontend/*": ["packages/frontend/src/*"],
+      "@belentani/studio-api/*": ["packages/studio-api/src/*"],
+      "@belentani/desktop/*": ["packages/desktop/src/*"]
+    },
+    "types": ["vite/client", "vitest/globals", "@playwright/test"]
+  },
+  "exclude": ["node_modules", "dist", "build", ".turbo", "**/dist/**"]
+}
